@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {lazy, Suspense} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import '@jetbrains/ring-ui-built/components/style.css';
 import './App.css';
 
+import Header from './components/Header';
+import LoaderScreen from "@jetbrains/ring-ui-built/components/loader-screen/loader-screen";
+import Theme, {applyTheme} from "@jetbrains/ring-ui-built/components/global/theme";
+
+const Home = lazy(() => import('./pages/Home'));
+const Boards = lazy(() => import('./pages/Boards'));
+const Editor = lazy(() => import('./pages/Editor'));
+
 function App() {
+    applyTheme(Theme.DARK, document.body);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Router>
+              <Suspense fallback={<LoaderScreen message={'Loading...'}/>}>
+                  <Header />
+                  <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/boards" element={<Boards />} />
+                      <Route path="/editor" element={<Editor />} />
+                  </Routes>
+              </Suspense>
+          </Router>
   );
 }
 
