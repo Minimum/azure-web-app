@@ -30,7 +30,7 @@ class GameDal {
             board.name = boardData.name;
             board.desc = boardData.desc;
             board.author = boardData.author;
-            board.authorDate = boardData.authorDate;
+            board.authorDate = new Date(boardData.authorDate);
             boardData.cells.forEach((cellData) => {
                 board.addCell(cellData);
             });

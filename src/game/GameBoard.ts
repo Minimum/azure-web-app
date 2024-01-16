@@ -5,7 +5,7 @@ class GameBoard {
     private _name: string;
     private _desc: string;
     private _author: string;
-    private _authorDate: number;
+    private _authorDate: Date;
     protected cells: GameCell[];
     public readonly width: number;
     public readonly height: number;
@@ -15,7 +15,7 @@ class GameBoard {
         this._name = "";
         this._desc = "";
         this._author = "";
-        this._authorDate = Date.now();
+        this._authorDate = new Date();
         this.cells = [];
         this.width = width;
         this.height = height;
@@ -45,11 +45,11 @@ class GameBoard {
         this._name = value;
     }
 
-    get authorDate(): number {
+    get authorDate(): Date {
         return this._authorDate;
     }
 
-    set authorDate(value: number) {
+    set authorDate(value: Date) {
         this._authorDate = value;
     }
     get author(): string {

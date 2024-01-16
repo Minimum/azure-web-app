@@ -12,7 +12,7 @@ interface Item extends SelectionItem {
     name: string,
     desc: string,
     author: string,
-    authorDate: number
+    authorDate: Date
 }
 
 function Boards() {
