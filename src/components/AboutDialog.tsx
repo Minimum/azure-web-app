@@ -19,12 +19,12 @@ class AboutDialog extends Component<AboutDialogProps, AboutDialogState> {
         show: this.props.show
     }
 
-    handleCloseAttempt = () => {
+    private handleCloseAttempt(): void {
         this.setState({show: false});
         this.props.onClose();
     }
 
-    render() {
+    public render() {
         return (
             <Dialog
                 label="About"

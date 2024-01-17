@@ -120,7 +120,7 @@ class LoadBoardDialog extends Component<LoadBoardDialogProps, LoadBoardDialogSta
             this.props.onLoad();
     }
 
-    render() {
+    public render() {
         return (
             <Dialog
                 label="Edit Board"

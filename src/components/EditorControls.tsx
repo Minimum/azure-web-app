@@ -21,7 +21,7 @@ class EditorControls extends Component<EditorControlsProps, EditorControlsState>
         super(props);
     }
 
-    render() {
+    public render() {
         return (
             <div className="ringMod-text ringMod-sidebar-section">
                 <Tabs

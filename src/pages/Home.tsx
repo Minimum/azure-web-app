@@ -13,6 +13,8 @@ import GameDataService from "../game/GameDataService";
 import GameBoardDto from "../dto/GameBoardDto";
 import NavigationControls from "../components/NavigationControls";
 import EditorControls from "../components/EditorControls";
+import GameViewport from "../components/GameViewport";
+import GameBoard from "../game/GameBoard";
 
 type HomeProps = {
 
@@ -22,7 +24,7 @@ type HomeState = {
     showEditBoardDialog: boolean;
     editBoardDialogSeq: number;
 
-    board: GameBoardDto;
+    board: GameBoard;
 }
 
 class Home extends React.Component<HomeProps, HomeState> {
@@ -30,7 +32,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         showEditBoardDialog: false,
         editBoardDialogSeq: 0,
 
-        board: new GameBoardDto(GameDataService.getInstance().initialize().loadLast())
+        board: GameDataService.getInstance().initialize().loadLast()
     }
 
     constructor(props: HomeProps) {
@@ -39,12 +41,14 @@ class Home extends React.Component<HomeProps, HomeState> {
         this.handleEditBoardClick = this.handleEditBoardClick.bind(this);
     }
 
-    handleEditBoardClick(): void {
+    private getBoardDto = (): GameBoardDto => new GameBoardDto(this.state.board);
+
+    private handleEditBoardClick(): void {
         this.setState({showEditBoardDialog: true, editBoardDialogSeq: this.state.editBoardDialogSeq + 1});
     }
 
-    handleBoardChange(newBoard : GameBoardDto): void {
-        this.setState({board: newBoard});
+    private handleBoardChange(newBoard : GameBoardDto): void {
+        this.setState({board: GameDataService.getInstance().gameData.boards[newBoard.id]});
     }
 
     render() {
@@ -53,12 +57,11 @@ class Home extends React.Component<HomeProps, HomeState> {
                 <Grid className="ringMod-fullGrid">
                     <Row className="ringMod-fillHeight">
                         <Col xs={2} className="ringMod-sidebar">
-                            <BoardControls onBoardChange={this.handleBoardChange} board={this.state.board}/>
-                            <EditorControls/>
+                            <BoardControls onBoardChange={this.handleBoardChange} board={this.getBoardDto()}/>
                             <NavigationControls/>
                         </Col>
-                        <Col xs={10}>
-                            Game board
+                        <Col xs={10} className="ringMod-fullGrid-main">
+                            <GameViewport board={this.state.board}/>
                         </Col>
                     </Row>
                 </Grid>

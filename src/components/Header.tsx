@@ -31,15 +31,15 @@ class Header extends Component<HeaderProps, HeaderState> {
         this.handleAboutDialogClose = this.handleAboutDialogClose.bind(this);
     }
 
-    handleAboutIconClick() {
+    private handleAboutIconClick(): void {
         this.setState({aboutDialogShow: true, aboutDialogSeq: this.state.aboutDialogSeq + 1});
     }
 
-    handleAboutDialogClose() {
+    private handleAboutDialogClose(): void {
         this.setState({aboutDialogShow: false});
     }
 
-    render() {
+    public render() {
         return (
             <JBHeader className="compactHeader">
                 <Link active href="/">Game</Link>

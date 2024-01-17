@@ -43,23 +43,23 @@ class BoardControls extends Component<BoardControlsProps, BoardControlsState> {
         this.handleLoadBoardLoad = this.handleLoadBoardLoad.bind(this);
     }
 
-    handleEditBoardClick() {
+    private handleEditBoardClick(): void {
         this.setState({showEditBoardDialog: true, editBoardDialogSeq: this.state.editBoardDialogSeq + 1});
     }
 
-    handleEditBoardSave(newBoard: GameBoardDto): void {
+    private handleEditBoardSave(newBoard: GameBoardDto): void {
         this.setState({board: newBoard});
     }
 
-    handleLoadBoardClick() {
+    private handleLoadBoardClick(): void {
         this.setState({showLoadBoardDialog: true, loadBoardDialogSeq: this.state.loadBoardDialogSeq + 1});
     }
 
-    handleLoadBoardLoad(newBoard: GameBoardDto): void {
+    private handleLoadBoardLoad(newBoard: GameBoardDto): void {
         this.setState({board: newBoard});
     }
 
-    render() {
+    public render() {
         return (
             <div className="ringMod-text ringMod-sidebar-section">
                 <Tabs

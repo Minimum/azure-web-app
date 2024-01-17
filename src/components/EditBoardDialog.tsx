@@ -46,7 +46,7 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         this.handleSaveClick = this.handleSaveClick.bind(this);
     }
 
-    render() {
+    public render() {
         return (
             <Dialog
                 label="Edit Board"
@@ -150,7 +150,7 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         );
     }
 
-    validate(): boolean {
+    private validate(): boolean {
         let validated: boolean = true;
 
         if(this.state.board.name.length === 0)
@@ -167,21 +167,21 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         return validated;
     }
 
-    handleCloseAttempt(): void {
+    private handleCloseAttempt(): void {
         this.setState({show: false});
 
         if (this.props.onCancel !== null)
             this.props.onCancel();
     }
 
-    handleCancelClick(): void {
+    private handleCancelClick(): void {
         this.setState({show: false});
 
         if (this.props.onCancel !== null)
             this.props.onCancel();
     }
 
-    handleSaveClick(): void {
+    private handleSaveClick(): void {
         if(!this.validate() || this.props.onSave === null)
             return;
 
