@@ -38,6 +38,14 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         nameError: null
     }
 
+    constructor(props: EditBoardDialogProps) {
+        super(props);
+
+        this.handleCloseAttempt = this.handleCloseAttempt.bind(this);
+        this.handleCancelClick = this.handleCancelClick.bind(this);
+        this.handleSaveClick = this.handleSaveClick.bind(this);
+    }
+
     render() {
         return (
             <Dialog
@@ -48,7 +56,7 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
                 >
                 <Island>
                     <Content>
-                        <Heading>Edit Board</Heading>
+                        <Heading>Edit Board #{this.state.board.id}</Heading>
                         <Grid>
                             <Row>
                                 <Col xs={3}>
@@ -142,7 +150,7 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         );
     }
 
-    validate = () : boolean => {
+    validate(): boolean {
         let validated: boolean = true;
 
         if(this.state.board.name.length === 0)
@@ -159,21 +167,21 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
         return validated;
     }
 
-    handleCloseAttempt = () => {
+    handleCloseAttempt(): void {
         this.setState({show: false});
 
         if (this.props.onCancel !== null)
             this.props.onCancel();
     }
 
-    handleCancelClick = () => {
+    handleCancelClick(): void {
         this.setState({show: false});
 
         if (this.props.onCancel !== null)
             this.props.onCancel();
     }
 
-    handleSaveClick = () => {
+    handleSaveClick(): void {
         if(!this.validate() || this.props.onSave === null)
             return;
 
@@ -186,7 +194,9 @@ class EditBoardDialog extends Component<EditBoardDialogProps, EditBoardDialogSta
 
         GameDataService.getInstance().save();
 
-        this.props.onSave();
+        this.setState({show: false});
+
+        this.props.onSave(this.state.board);
     }
 }
 

@@ -3,7 +3,7 @@ class GameCell {
     public readonly yPosition : number;
     protected value : boolean;
 
-    constructor(xPosition : number, yPosition : number, value : boolean) {
+    constructor(xPosition: number, yPosition: number, value: boolean) {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.value = value;

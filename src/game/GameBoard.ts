@@ -6,7 +6,7 @@ class GameBoard {
     private _desc: string;
     private _author: string;
     private _authorDate: Date;
-    protected cells: GameCell[];
+    private _cells: GameCell[];
     public readonly width: number;
     public readonly height: number;
 
@@ -16,7 +16,7 @@ class GameBoard {
         this._desc = "";
         this._author = "";
         this._authorDate = new Date();
-        this.cells = [];
+        this._cells = [];
         this.width = width;
         this.height = height;
     }
@@ -65,6 +65,10 @@ class GameBoard {
 
     set desc(value: string) {
         this._desc = value;
+    }
+
+    get cells(): GameCell[] {
+        return this._cells;
     }
 }
 

@@ -13,6 +13,34 @@ code {
     monospace;
 }
 
+.ringMod-app {
+  height: calc(100vh);
+}
+
+.ringMod-fullGrid {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ringMod-fillHeight {
+  height: -webkit-fill-available;
+}
+
+.ringMod-sidebar {
+  background: var(--ring-sidebar-background-color);
+  margin: 0 !important;
+  padding: 8px 8px 8px 16px !important;
+}
+
+.ringMod-sidebar-section {
+  margin-bottom: 16px;
+}
+
+.ringMod-text {
+  color: var(--ring-text-color);
+}
+
 .ringMod-dialog-large > .innerContainer_rui_381e {
   width: 95vw;
   max-width: 95vw;

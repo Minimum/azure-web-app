@@ -1,5 +1,6 @@
 import GameData from "./GameData";
 import GameDal from "./GameDal";
+import GameBoard from "./GameBoard";
 
 class GameDataService {
     private static instance: GameDataService;
@@ -12,8 +13,16 @@ class GameDataService {
         this._gameData = null;
     }
 
-    public initialize() : void {
+    public initialize() : GameDataService {
         this._gameData = this._gameDal.loadFromStorage() ?? this._gameDal.loadDefault();
+
+        console.log(this._gameData);
+
+        return this;
+    }
+
+    public loadLast() : GameBoard {
+        return this.gameData.getLastLoadedBoard();
     }
 
     public save() : void {

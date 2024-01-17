@@ -1,38 +1,39 @@
 {
-  "boardSequence": 3,
+  "_boardSequence": 3,
+  "_lastLoaded": 0,
   "boards": [
     {
-      "id": 1,
-      "name": "Board 1",
-      "desc": "Board 1 description",
-      "author": "Author 1",
-      "authorDate": 1234567890,
-      "width": 10,
-      "height": 10,
+      "_id": 0,
+      "_name": "Board 1",
+      "_desc": "Board 1 description",
+      "_author": "Author 1",
+      "_authorDate": 1234567890,
+      "width": 100,
+      "height": 100,
       "cells" : [
 
       ]
     },
     {
-      "id": 2,
-      "name": "Board 2",
-      "desc": "Board 2 description",
-      "author": "Author 2",
-      "authorDate": 1234567890,
-      "width": 10,
-      "height": 10,
+      "_id": 1,
+      "_name": "Board 2",
+      "_desc": "Board 2 description",
+      "_author": "Author 2",
+      "_authorDate": 1234567890,
+      "width": 100,
+      "height": 100,
       "cells" : [
 
       ]
     },
     {
-      "id": 3,
-      "name": "Board 3",
-      "desc": "Board 3 description",
-      "author": "Author 3",
-      "authorDate": 1234567890,
-      "width": 10,
-      "height": 10,
+      "_id": 2,
+      "_name": "Board 3",
+      "_desc": "Board 3 description",
+      "_author": "Author 3",
+      "_authorDate": 1234567890,
+      "width": 100,
+      "height": 100,
       "cells" : [
 
       ]

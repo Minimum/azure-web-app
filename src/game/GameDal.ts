@@ -1,6 +1,8 @@
 import GameData from "./GameData";
 import defaultData from "../defaultGameData.json"
 import GameBoard from "./GameBoard";
+import gameDataService from "./GameDataService";
+import GameCell from "./GameCell";
 
 class GameDal {
     public deserialize(data: string): GameData {
@@ -13,33 +15,18 @@ class GameDal {
         let data: string | null = localStorage.getItem("gameData");
         let gameData: GameData | null = null;
 
-        if(data != null) {
-            gameData = this.deserialize(data);
+        if(data !== null) {
+            let gameDataShell: GameData = this.deserialize(data);
+
+            gameData = this.buildData(gameDataShell);
+
+            console.log(gameData);
         }
 
         return gameData;
     }
 
-    public loadDefault(): GameData {
-        let gameData: GameData = new GameData(defaultData.boardSequence);
-
-        defaultData.boards.forEach((boardData) => {
-            let board: GameBoard = new GameBoard(boardData.width, boardData.height);
-
-            board.id = boardData.id;
-            board.name = boardData.name;
-            board.desc = boardData.desc;
-            board.author = boardData.author;
-            board.authorDate = new Date(boardData.authorDate);
-            boardData.cells.forEach((cellData) => {
-                board.addCell(cellData);
-            });
-
-            gameData.addBoard(board);
-        });
-
-        return gameData;
-    }
+    public loadDefault = (): GameData => this.buildData(defaultData);
 
     public saveToStorage(data: GameData): void {
         localStorage.setItem("gameData", JSON.stringify(data));
@@ -50,6 +37,39 @@ class GameDal {
         let url: string = URL.createObjectURL(blob);
 
         window.location.replace(url);
+    }
+
+    private buildData(gameDataShell: any): GameData {
+        let boards: GameBoard[] = [];
+        let gameData: GameData = new GameData(gameDataShell._boardSequence, gameDataShell._lastLoaded);
+
+        console.log(gameDataShell);
+
+        gameDataShell.boards.forEach((boardData: any): void => {
+            boards[boardData._id] = this.buildBoard(boardData);
+        });
+
+        gameData.boards = boards;
+
+        return gameData;
+    }
+
+    private buildBoard(boardData: any): GameBoard {
+        let board: GameBoard = new GameBoard(boardData.width, boardData.height);
+
+        board.id = boardData._id;
+        board.name = boardData._name;
+        board.desc = boardData._desc;
+        board.author = boardData._author;
+        board.authorDate = new Date(boardData._authorDate);
+
+        if(boardData._cells !== undefined) {
+            boardData._cells.forEach((cellData: any): void => {
+                board.addCell(new GameCell(cellData.xPosition, cellData.yPosition, cellData.value));
+            });
+        }
+
+        return board;
     }
 }
 
