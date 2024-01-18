@@ -28,8 +28,9 @@ code {
   padding: 0 !important;
 }
 
-.ringMod-fillHeight {
-  height: -webkit-fill-available;
+.ringMod-fullGrid-mainRow {
+  height: inherit;
+  margin: 0 !important;
 }
 
 .ringMod-viewport {
