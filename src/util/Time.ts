@@ -1,4 +1,12 @@
 class TimeUtil {
+<<<<<<< HEAD
+=======
+
+    public constructor() {
+
+    }
+
+>>>>>>> master
     public static getDateString(date: Date): string {
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
     }
