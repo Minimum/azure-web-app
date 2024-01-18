@@ -16,13 +16,6 @@ class NavigationControls extends Component<NavigationControlsProps, NavigationCo
 
     }
 
-<<<<<<< HEAD
-=======
-    constructor(props: NavigationControlsProps) {
-        super(props);
-    }
-
->>>>>>> master
     public render() {
         return (
             <div className="ringMod-text ringMod-sidebar-section">

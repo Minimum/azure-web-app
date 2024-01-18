@@ -1,10 +1,6 @@
 import GameData from "./GameData";
 import defaultData from "../defaultGameData.json"
 import GameBoard from "./GameBoard";
-<<<<<<< HEAD
-=======
-import gameDataService from "./GameDataService";
->>>>>>> master
 import GameCell from "./GameCell";
 
 class GameDal {
