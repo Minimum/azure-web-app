@@ -52,7 +52,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         return (
             <div className="ringMod-app">
                 <Grid className="ringMod-fullGrid">
-                    <Row className="ringMod-fillHeight">
+                    <Row className="ringMod-fullGrid-mainRow">
                         <Col xs={2} className="ringMod-sidebar">
                             <BoardControls onBoardChange={this.handleBoardChange} board={this.getBoardDto()}/>
                             <NavigationControls/>
