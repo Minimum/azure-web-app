@@ -1,18 +1,15 @@
 import React from 'react';
 import '../App.css';
 
-import pencilIcon from '@jetbrains/icons/pencil';
-
-import Button from "@jetbrains/ring-ui-built/components/button/button";
 import {Grid} from "@jetbrains/ring-ui-built/components/grid/grid";
 import Row from "@jetbrains/ring-ui-built/components/grid/row";
 import Col from "@jetbrains/ring-ui-built/components/grid/col";
-import Text from "@jetbrains/ring-ui-built/components/text/text";
+
 import BoardControls from "../components/BoardControls";
 import GameDataService from "../game/GameDataService";
 import GameBoardDto from "../dto/GameBoardDto";
 import NavigationControls from "../components/NavigationControls";
-import EditorControls from "../components/EditorControls";
+
 import GameViewport from "../components/GameViewport";
 import GameBoard from "../game/GameBoard";
 

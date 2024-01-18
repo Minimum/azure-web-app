@@ -14,10 +14,6 @@ class GameViewport extends Component<GameViewportProps, GameViewportState> {
         board: this.props.board
     }
 
-    constructor(props: GameViewportProps) {
-        super(props);
-    }
-
     public render() {
         return (
             <div className="ringMod-viewport">

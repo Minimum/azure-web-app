@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import '@jetbrains/ring-ui-built/components/style.css';
 import './App.css';
 
-import Header from './components/Header';
 import LoaderScreen from "@jetbrains/ring-ui-built/components/loader-screen/loader-screen";
 import Theme, {applyTheme} from "@jetbrains/ring-ui-built/components/global/theme";
 
