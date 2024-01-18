@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #252629;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.ringMod-app {
+  height: calc(100vh);
+}
+
+.ringMod-fullGrid {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ringMod-fullGrid-main {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ringMod-fillHeight {
+  height: -webkit-fill-available;
+}
+
+.ringMod-viewport {
+  height: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.ringMod-sidebar {
+  background: var(--ring-sidebar-background-color);
+  margin: 0 !important;
+  padding: 8px 8px 8px 16px !important;
+}
+
+.ringMod-sidebar-section {
+  margin-bottom: 16px;
+}
+
+.ringMod-text {
+  color: var(--ring-text-color);
+}
+
+.ringMod-dialog-large > .innerContainer_rui_381e {
+  width: 95vw;
+  max-width: 95vw;
+}
+
+.ringMod-dialog-large > .innerContainer_rui_381e > .island_rui_1d72 {
+  width: auto;
+}
+
+.ringMod-dialog-large--size-6 > .innerContainer_rui_381e > .island_rui_1d72
+{
+  width: calc(95vw * 0.5);
+}
+
+.ringMod-dialog-large--size-8 > .innerContainer_rui_381e > .island_rui_1d72
+{
+  width: calc(95vw * 8 / 12);
+}
+
+.ringMod-dialog-large--size-10 > .innerContainer_rui_381e > .island_rui_1d72
+{
+  width: calc(95vw * 10 / 12);
+}
+
+.ringMod-dialog-large--size-12 > .innerContainer_rui_381e > .island_rui_1d72
+{
+  width: 95vw;
+}
